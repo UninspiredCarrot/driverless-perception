@@ -1,5 +1,6 @@
 fsoco_bounding_boxes_train/*
 fsoco_sample/*
+fsoco-YOLO/*
 
 
 # Byte-compiled / optimized / DLL files
