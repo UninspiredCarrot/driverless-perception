@@ -2,6 +2,8 @@ fsoco_bounding_boxes_train/*
 fsoco_sample/*
 fsoco-YOLO/*
 *.pt
+runs/*
+.DS_Store
 
 
 # Byte-compiled / optimized / DLL files

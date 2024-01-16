@@ -1,5 +1,5 @@
 path: /Users/bolt/code/driverless-perception/fsoco-YOLO
-train: images/train
+train: images/val
 val: images/val
 
 names:
