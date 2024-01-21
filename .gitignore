@@ -1,6 +1,7 @@
 fsoco_bounding_boxes_train/*
 fsoco_sample/*
 fsoco-YOLO/*
+fsoco-YOLO-all/*
 *.pt
 runs/*
 .DS_Store

@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 # Load a model
-model = YOLO("yolov8n.yaml")  # build a new model from scratch
+model = YOLO("yolov8n.pt")  
 
 # Use the model
-results = model.train(data="perception.yaml", epochs=1)  # train the model
+results = model.train(data="perception.yaml", epochs=20)  # train the model
