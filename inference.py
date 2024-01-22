@@ -5,7 +5,7 @@ from ultralytics import YOLO
 model = YOLO('/Users/bolt/code/driverless-perception/runs/detect/train12/weights/best.pt')
 
 # Run inference on 'bus.jpg'
-results = model('/Users/bolt/Desktop/ezgif-5-7f016e2dfe-jpg/ezgif-frame-071.jpg')  # results list
+results = model('/Users/bolt/code/driverless-perception/zed-input.png')  # results list
 
 # Show the results
 for r in results:
