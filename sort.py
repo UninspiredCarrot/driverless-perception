@@ -22,9 +22,6 @@ def get_magnitude(result1, result2):
     return math.sqrt((result1["xywh"][0]-result2["xywh"][0])**2 + (result1["xywh"][1]-result2["xywh"][1])**2)
 
 def should_switch(call):
-    print(call)
-    print(f'{get_magnitude(call["before"], call["close"][0])}')
-    print(f'{get_magnitude(call["before"], call["close"][1])}')
     if get_magnitude(call["before"], call["close"][0]) > get_magnitude(call["before"], call["close"][1]):
         return call["index"]
     return False
@@ -33,10 +30,8 @@ def should_switch(call):
 def sort(results):
     sorted_results = area_sort(results)
     close_calls = get_close_calls(sorted_results)
-    print(close_calls)
     for call in close_calls:
         index = should_switch(call)
-        print(index)
         if index:
             temp = sorted_results[index]
             sorted_results[index] = sorted_results[index+1]
