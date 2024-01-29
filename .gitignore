@@ -5,9 +5,7 @@ fsoco-YOLO-all/*
 *.pt
 runs/*
 .DS_Store
-
-.mp4
-.mov
+media/*
 
 
 # Byte-compiled / optimized / DLL files
