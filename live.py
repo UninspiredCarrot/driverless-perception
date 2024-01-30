@@ -2,15 +2,7 @@ import cv2
 import process_frame
 import time
 
-video_capture = cv2.VideoCapture("output.mp4")
-CONFIDENCE_LIMIT = 0.8
-
-def draw_label(frame, x, y, w, h, label):
-
-    cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-    cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
-    return frame
+video_capture = cv2.VideoCapture(0)
 
 total = 0
 count = 0
@@ -21,7 +13,7 @@ while (video_capture.isOpened()):
 
     if ret == True:
         start_time = time.time()
-        process_frame.process(frame)
+        frame = process_frame.process(frame)
         end_time = time.time()
         execution_time = end_time - start_time
         count += 1
