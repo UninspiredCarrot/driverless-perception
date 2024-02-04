@@ -16,18 +16,24 @@ RUN git clone https://gitlab.com/eufs/eufs_sim \
 # Set environment variable
 ENV EUFS_MASTER=/eufs_folder
 
+
+
+# Update rosdep and install dependencies
+RUN /bin/bash -c "rosdep update --include-eol-distros \
+    && rosdep install --from-paths $EUFS_MASTER --ignore-src -r -y"
+
+
+
 # Source ROS setup file
 RUN /bin/bash -c "source /opt/ros/galactic/setup.sh"
 
-# Update rosdep and install dependencies
-RUN rosdep update --include-eol-distros \
-    && rosdep install --from-paths $EUFS_MASTER --ignore-src -r -y
+# # Build packages with retry
+# RUN /bin/bash -c "colcon build"
 
-# Build packages
-RUN /bin/bash -c "colcon build"
-
-# Add ROS setup to .bashrc
-RUN echo "source /eufs_folder/install/setup.sh" >> ~/.bashrc
+# # Add ROS setup to .bashrc
+# RUN echo "source /eufs_folder/install/setup.sh" >> ~/.bashrc
 
 # Set display environment variable for GUI applications
 ENV DISPLAY host.docker.internal:0.0
+
+
