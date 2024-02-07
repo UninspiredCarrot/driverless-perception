@@ -17,10 +17,10 @@ RUN pip3 install torch torchvision torchaudio --index-url https://download.pytor
 
 RUN git clone https://github.com/UninspiredCarrot/driverless-perception
 
-RUN cd driverless-perception
+WORKDIR /driverless-perception/src
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 # ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
 
-CMD ["python3", "./driverless-perception/src/frame.py"]
+CMD ["python3", "frame.py"]
