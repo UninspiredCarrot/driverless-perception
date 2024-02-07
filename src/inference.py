@@ -1,6 +1,9 @@
 from ultralytics import YOLO
+import os
 
-model = YOLO('model.pt')
+path = os.getcwd() + '/model.pt'
+
+model = YOLO(path)
 
 classes = {
    "0": "yellow_cone",
