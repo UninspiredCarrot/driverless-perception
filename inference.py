@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 
-model = YOLO('/Users/bolt/code/driverless-perception/runs/detect/train12/weights/best.pt')
+model = YOLO('best.pt')
 
 classes = {
    "0": "yellow_cone",

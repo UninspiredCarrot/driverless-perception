@@ -6,6 +6,7 @@ fsoco-YOLO-all/*
 runs/*
 .DS_Store
 media/*
+docker/
 
 
 # Byte-compiled / optimized / DLL files

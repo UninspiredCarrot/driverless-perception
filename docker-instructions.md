@@ -1,5 +1,5 @@
 Install Docker Desktop
-Install and X11 display server
+Install an X11 display server
 
 ```bash
 cd /path/to/folder/with/Dockerfile
