@@ -2,7 +2,7 @@ import cv2
 import process_frame
 import time
 
-video_capture = cv2.VideoCapture(0)
+video_capture = cv2.VideoCapture('../media/output.mp4')
 
 total = 0
 count = 0
