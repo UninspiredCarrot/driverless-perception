@@ -1,12 +1,6 @@
-fsoco_bounding_boxes_train/*
-fsoco_sample/*
-fsoco-YOLO/*
-fsoco-YOLO-all/*
-*.pt
-runs/*
+data/*
 .DS_Store
 media/*
-docker/
 
 
 # Byte-compiled / optimized / DLL files

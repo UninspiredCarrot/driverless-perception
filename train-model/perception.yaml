@@ -1,0 +1,10 @@
+path: /Users/bolt/code/driverless-perception/fsoco-YOLO
+train: images/val
+val: images/test
+
+names:
+  0: yellow_cone
+  1: blue_cone
+  2: orange_cone
+  3: large_orange_cone
+  4: unknown_cone
