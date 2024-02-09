@@ -1,2 +1,0 @@
-source /opt/ros/humble/setup.bash
-source /usr/share/colcon_arcomplete/hook/colcon-argcomplete.bash

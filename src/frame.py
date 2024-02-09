@@ -2,7 +2,7 @@ import cv2
 import process_frame
 import time
 
-frame = cv2.imread("../media/test/6.jpg")
+frame = cv2.imread("../media/test/out.png")
 
 start_time = time.time()
 frame = process_frame.process(frame)
