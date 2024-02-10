@@ -21,7 +21,6 @@ def process(frame):
     frame = zed_opencv_native.process(frame)
 
     frame_height, frame_width, _ = frame.shape
-    print(frame.shape)
 
     left_frame = frame[:, :frame_width//2]
     right_frame = frame[:, frame_width//2:]
