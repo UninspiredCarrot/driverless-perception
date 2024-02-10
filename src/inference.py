@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import os
 
-path = os.getcwd() + '/model.pt'
+path = os.path.dirname(os.path.realpath(__file__)) + '/model.pt'
 
 model = YOLO(path)
 
