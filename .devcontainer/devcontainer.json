@@ -3,7 +3,8 @@
     "build": { "dockerfile": "Dockerfile" },
     "runArgs": [
       "--privileged",
-      "--network=novnc_network"
+      "--network=novnc_network",
+      "-v /dev/video*"
     ],
     "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
     "workspaceFolder": "/${localWorkspaceFolderBasename}"

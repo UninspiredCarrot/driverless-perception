@@ -2,13 +2,14 @@ import numpy as np
 import os
 import configparser
 import cv2
+import wget
 
 def init_calibration(calibration_file, image_size) :
 
     cameraMarix_left = cameraMatrix_right = map_left_y = map_left_x = map_right_y = map_right_x = np.array([])
 
     config = configparser.ConfigParser()
-    config.read(os.path.dirname(os.path.abspath(__file__)) + "/" + calibration_file)
+    config.read("/driverless-perception/ws/src/zed_rectify_pkg/zed_rectify_pkg/SN34281902.conf")
 
     check_data = True
     resolution_str = ''
