@@ -8,8 +8,10 @@ import cv2
 class ZedCameraNode(Node):
     def __init__(self):
         super().__init__('zed_camera_node')
-        self.publisher_left = self.create_publisher(Image, 'rectified_left_image', 10)
-        self.publisher_right = self.create_publisher(Image, 'rectified_right_image', 10)
+        self.publisher_left_raw = self.create_publisher(Image, 'raw_left_image', 10)
+        self.publisher_right_raw = self.create_publisher(Image, 'raw_right_image', 10)
+        self.publisher_left_rect = self.create_publisher(Image, 'rectified_left_image', 10)
+        self.publisher_right_rect = self.create_publisher(Image, 'rectified_right_image', 10)
         self.bridge = CvBridge()
 
         self.video_capture = cv2.VideoCapture(0)
@@ -19,22 +21,23 @@ class ZedCameraNode(Node):
         rectified_frame = zed_opencv_native.process(frame)
         return rectified_frame
 
-    def publish_images(self, left_image, right_image):
-    
-        msg_left = self.bridge.cv2_to_imgmsg(left_image, 'bgr8')
-        msg_right = self.bridge.cv2_to_imgmsg(right_image, 'bgr8')
-        self.publisher_left.publish(msg_left)
-        self.publisher_right.publish(msg_right)
+    def publish_images(self, left_image_raw, right_image_raw, left_image_rect, right_image_rect):
+        msg_left_raw = self.bridge.cv2_to_imgmsg(left_image_raw, 'bgr8')
+        msg_right_raw = self.bridge.cv2_to_imgmsg(right_image_raw, 'bgr8')
+        msg_left_rect = self.bridge.cv2_to_imgmsg(left_image_rect, 'bgr8')
+        msg_right_rect = self.bridge.cv2_to_imgmsg(right_image_rect, 'bgr8')
+        self.publisher_left_raw.publish(msg_left_raw)
+        self.publisher_right_raw.publish(msg_right_raw)
+        self.publisher_left_rect.publish(msg_left_rect)
+        self.publisher_right_rect.publish(msg_right_rect)
 
     def capture_and_publish(self):
-
         ret, frame = self.video_capture.read()
-
         if ret:
-
+            left_image_raw, right_image_raw = zed_opencv_native.split(frame)
             rectified_frame = self.rectify_frame(frame)
-            lf, rf = zed_opencv_native.split(rectified_frame)
-            self.publish_images(lf, rf)
+            left_image_rect, right_image_rect = zed_opencv_native.split(rectified_frame)
+            self.publish_images(left_image_raw, right_image_raw, left_image_rect, right_image_rect)
 
 def main(args=None):
     rclpy.init(args=args)
